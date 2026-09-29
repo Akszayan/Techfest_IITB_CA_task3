@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #02010a;
+  --foreground: #e6edf3;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  background-color: var(--background);
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(2, 6, 23, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00f0ff 0%, #a855f7 50%, #f43f5e 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #38bdf8 0%, #c084fc 50%, #fb7185 100%);
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(13, 17, 34, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-panel-cyan {
+  background: rgba(0, 240, 255, 0.05);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(0, 240, 255, 0.15);
+}
+
+.glass-panel-magenta {
+  background: rgba(255, 0, 128, 0.05);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 0, 128, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(255, 0, 128, 0.15);
+}
+
+.glass-panel-gold {
+  background: rgba(251, 191, 36, 0.05);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(251, 191, 36, 0.15);
+}
+
+/* Glow filters */
+.glow-cyan {
+  filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.6));
+}
+
+.glow-magenta {
+  filter: drop-shadow(0 0 15px rgba(255, 0, 128, 0.6));
+}
+
+.glow-gold {
+  filter: drop-shadow(0 0 15px rgba(251, 191, 36, 0.6));
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 20px rgba(0, 240, 255, 0.7), 0 0 40px rgba(0, 240, 255, 0.3);
+}
+
+.text-glow-magenta {
+  text-shadow: 0 0 20px rgba(255, 0, 128, 0.7), 0 0 40px rgba(255, 0, 128, 0.3);
+}
+
+.text-glow-gold {
+  text-shadow: 0 0 20px rgba(251, 191, 36, 0.7), 0 0 40px rgba(251, 191, 36, 0.3);
+}
+
+/* Animated gradient text */
+.gradient-text-shimmer {
+  background: linear-gradient(90deg, #ffffff 0%, #00f0ff 25%, #ff007f 50%, #00f0ff 75%, #ffffff 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Cyber grid background */
+.cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 240, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 240, 255, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.cyber-grid-perspective {
+  background-image: 
+    linear-gradient(to right, rgba(255, 0, 128, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 0, 128, 0.15) 1px, transparent 1px);
+  background-size: 50px 50px;
+  transform: perspective(600px) rotateX(65deg);
+  transform-origin: bottom center;
+}
+
+/* 3D exploded view mode */
+.exploded-view-active {
+  transform: perspective(1200px) rotateX(25deg) rotateY(-15deg) scale(0.85);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+}
+
+/* Underwater caustics / light rays */
+.caustic-rays {
+  background: linear-gradient(105deg, 
+    transparent 20%, 
+    rgba(0, 240, 255, 0.1) 25%, 
+    transparent 30%, 
+    rgba(0, 255, 179, 0.12) 45%, 
+    transparent 50%, 
+    rgba(0, 240, 255, 0.08) 70%, 
+    transparent 80%);
+  background-size: 200% 100%;
+  animation: lightRays 8s ease-in-out infinite alternate;
+}
+
+@keyframes lightRays {
+  0% { transform: scale(1) translateX(-5%); opacity: 0.4; }
+  100% { transform: scale(1.1) translateX(5%); opacity: 0.8; }
+}
+
+/* Aurora wave animation */
+.aurora-ribbon {
+  background: linear-gradient(90deg, transparent, rgba(72, 202, 228, 0.25), rgba(157, 0, 255, 0.35), rgba(0, 255, 179, 0.3), transparent);
+  filter: blur(40px);
+  animation: auroraFlow 12s ease-in-out infinite alternate;
+}
+
+@keyframes auroraFlow {
+  0% { transform: translateY(0px) scaleY(1) rotate(-2deg); }
+  50% { transform: translateY(-30px) scaleY(1.4) rotate(3deg); }
+  100% { transform: translateY(15px) scaleY(0.9) rotate(-1deg); }
+}
+
+/* Accretion disk spin */
+@keyframes accretionSpin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.05); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.accretion-disk {
+  animation: accretionSpin 20s linear infinite;
+}
